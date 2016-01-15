@@ -83,6 +83,8 @@ public abstract class Translator {
                 translator = new CPlusPlusTranslator(new CPlusPlusTargetProfile());
             else if (targetLanguage.equals("c++vs2008"))
                 translator = new CPlusPlusTranslator(new CPlusPlusVS2008Profile());
+            else if (targetLanguage.equals("c++vs2015"))
+                translator = new CPlusPlusTranslator(new CPlusPlusVS2015Profile());
             else if (targetLanguage.equals("c#"))
                 translator = new CSharpTranslator();
             else {

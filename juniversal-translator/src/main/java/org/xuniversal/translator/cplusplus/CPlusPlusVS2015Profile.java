@@ -30,33 +30,33 @@ import java.io.Writer;
  *
  * @author Mike Sinkovsky
  */
-public class CPlusPlusVS2008Profile extends CPlusPlusTargetProfile {
+public class CPlusPlusVS2015Profile extends CPlusPlusTargetProfile {
 
     @Override public CPlusPlusTargetWriter createTargetWriter(Writer writer) {
-        return new CPlusPlusVS2008Writer(writer, this);
+        return new CPlusPlusVS2015Writer(writer, this);
     }
 
     @Override public String getInt8Type() {
-        return "__int8";
+        return "int8_t";
     }
 
     @Override public String getInt16Type() {
-        return "__int16";
+        return "int16_t";
     }
 
     @Override public String getInt32Type() {
-        return "__int32";
+        return "int32_t";
     }
 
     @Override public String getInt64Type() {
-        return "__int64";
+        return "int64_t";
     }
 
     @Override public String getCharType() {
-        return "wchar_t";
+        return "char16_t";
     }
 
-    private static TypeName stringType = new TypeName("std", "wstring");
+    private static TypeName stringType = new TypeName("std", "u16string");
     @Override public TypeName getStringType() {
         return stringType;
     }

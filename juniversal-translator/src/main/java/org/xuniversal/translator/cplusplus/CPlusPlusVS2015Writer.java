@@ -20,44 +20,28 @@
 
 package org.xuniversal.translator.cplusplus;
 
+import org.juniversal.translator.core.TypeNames;
 import org.xuniversal.translator.core.TypeName;
+
 import java.io.Writer;
 
 /**
- * The CPPProfile class describes how the C++ should be generated.  Primarily this class gives
- * attributes of the target C++ compiler, for example saying what types are used to represent
- * different sizes of unsigned integers.
- *
  * @author Mike Sinkovsky
  */
-public class CPlusPlusVS2008Profile extends CPlusPlusTargetProfile {
+public class CPlusPlusVS2015Writer extends CPlusPlusTargetWriter {
 
-    @Override public CPlusPlusTargetWriter createTargetWriter(Writer writer) {
-        return new CPlusPlusVS2008Writer(writer, this);
+    public CPlusPlusVS2015Writer(Writer writer, CPlusPlusTargetProfile targetProfile) {
+        super(writer, targetProfile);
     }
 
-    @Override public String getInt8Type() {
-        return "__int8";
+    @Override
+    public void writeIncludesForHeaderFile(TypeNames names) {
+        writeIncludes(null, names);
     }
 
-    @Override public String getInt16Type() {
-        return "__int16";
-    }
-
-    @Override public String getInt32Type() {
-        return "__int32";
-    }
-
-    @Override public String getInt64Type() {
-        return "__int64";
-    }
-
-    @Override public String getCharType() {
-        return "wchar_t";
-    }
-
-    private static TypeName stringType = new TypeName("std", "wstring");
-    @Override public TypeName getStringType() {
-        return stringType;
+    @Override
+    public void writeIncludesForSourceFile(TypeName typeName, TypeNames names) {
+        writeln("#include \"stdafx.h\"");
+        writeIncludes(typeName, names);
     }
 }
