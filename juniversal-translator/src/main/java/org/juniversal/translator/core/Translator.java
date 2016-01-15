@@ -29,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import org.juniversal.translator.cplusplus.CPlusPlusTranslator;
 import org.juniversal.translator.csharp.CSharpTranslator;
 import org.xuniversal.translator.core.*;
+import org.xuniversal.translator.cplusplus.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -79,7 +80,9 @@ public abstract class Translator {
 
             Translator translator;
             if (targetLanguage.equals("c++"))
-                translator = new CPlusPlusTranslator();
+                translator = new CPlusPlusTranslator(new CPlusPlusTargetProfile());
+            else if (targetLanguage.equals("c++vs2008"))
+                translator = new CPlusPlusTranslator(new CPlusPlusVS2008Profile());
             else if (targetLanguage.equals("c#"))
                 translator = new CSharpTranslator();
             else {

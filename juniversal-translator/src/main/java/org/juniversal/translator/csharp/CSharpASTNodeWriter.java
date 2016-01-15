@@ -26,7 +26,6 @@ import org.eclipse.jdt.core.dom.*;
 import org.jetbrains.annotations.Nullable;
 import org.juniversal.translator.core.ASTNodeWriter;
 import org.juniversal.translator.core.AccessLevel;
-import org.xuniversal.translator.cplusplus.CPlusPlusTargetWriter;
 import org.xuniversal.translator.csharp.CSharpTargetWriter;
 
 import java.util.List;

@@ -1,6 +1,4 @@
 /*
- * Copyright (c) 2012-2015, Microsoft Mobile
- *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -23,8 +21,6 @@
 package org.xuniversal.translator.cplusplus;
 
 import org.xuniversal.translator.core.TypeName;
-import org.xuniversal.translator.core.TargetProfile;
-import org.xuniversal.translator.core.TypeName;
 import java.io.Writer;
 
 /**
@@ -32,85 +28,36 @@ import java.io.Writer;
  * attributes of the target C++ compiler, for example saying what types are used to represent
  * different sizes of unsigned integers.
  *
- * @author bretjohn
+ * @author Mike Sinkovsky
  */
-public class CPlusPlusTargetProfile extends TargetProfile {
-    private static TypeName objectType = new TypeName("xuniv", "Object");
-    private static TypeName stringType = new TypeName("xuniv", "String");
-    private static TypeName stringBuilderType = new TypeName("xuniv", "StringBuilder");
-    private static TypeName arrayType = new TypeName("xuniv", "Array");
-    private static TypeName boxType = new TypeName("xuniv", "Box");
-    private static TypeName sharedPtrType = new TypeName("std", "shared_ptr");
-    private static TypeName weakPtrType = new TypeName("std", "weak_ptr");
+public class CPlusPlusVS2008Profile extends CPlusPlusTargetProfile {
 
-    public CPlusPlusTargetWriter createTargetWriter(Writer writer) {
-        return new CPlusPlusTargetWriter(writer, this);
-    }
-
-    @Override public boolean isCPlusPlus() {
-        return true;
+    @Override public CPlusPlusTargetWriter createTargetWriter(Writer writer) {
+        return new CPlusPlusVS2008Writer(writer, this);
     }
 
     @Override public String getInt8Type() {
-        return "char";
+        return "int8_t";
     }
 
     @Override public String getInt16Type() {
-        return "short";
+        return "int16_t";
     }
 
     @Override public String getInt32Type() {
-        return "int";
+        return "int32_t";
     }
 
     @Override public String getInt64Type() {
         return "int64_t";
     }
 
-    @Override public String getFloat32Type() {
-        return "float";
-    }
-
-    @Override public String getFloat64Type() {
-        return "double";
-    }
-
     @Override public String getCharType() {
         return "char16_t";
     }
 
-    @Override public String getBooleanType() {
-        return "bool";
-    }
-
-    @Override public String getVoidType() {
-        return "void";
-    }
-    @Override public TypeName getObjectType() {
-        return objectType;
-    }
-
+    private static TypeName stringType = new TypeName("std", "u16string");
     @Override public TypeName getStringType() {
         return stringType;
-    }
-
-    @Override public TypeName getStringBuilderType() {
-        return stringBuilderType;
-    }
-
-    @Override public TypeName getArrayType() {
-        return arrayType;
-    }
-
-    public TypeName getBoxType() {
-        return boxType;
-    }
-
-    public TypeName getSharedPtrType() {
-        return sharedPtrType;
-    }
-
-    public TypeName getWeakPtrType() {
-        return weakPtrType;
     }
 }

@@ -38,10 +38,11 @@ import java.util.List;
 import static org.juniversal.translator.core.ASTUtil.forEach;
 
 public class CPlusPlusTranslator extends Translator {
-    private CPlusPlusTargetProfile targetProfile = new CPlusPlusTargetProfile();
+    private CPlusPlusTargetProfile targetProfile;
     private CPlusPlusContext context;
 
-    public CPlusPlusTranslator() {
+    public CPlusPlusTranslator(CPlusPlusTargetProfile targetProfile) {
+        this.targetProfile = targetProfile;
         addDeclarationWriters();
         addStatementWriters();
         addExpressionWriters();
@@ -64,7 +65,7 @@ public class CPlusPlusTranslator extends Translator {
     }
 
     @Override protected CPlusPlusTargetWriter createTargetWriter(Writer writer) {
-        return new CPlusPlusTargetWriter(writer, targetProfile);
+        return targetProfile.createTargetWriter(writer);
     }
 
     @Override public void translateFile(JavaSourceFile sourceFile) {
