@@ -5,8 +5,15 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../gradle-1.12" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/juniversal-translator" />
+            <option value="$PROJECT_DIR$/translator-tests" />
+          </set>
+        </option>
+        <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/juniversal-translator" />
@@ -17,8 +24,13 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/build-tool-plugins/juniversal-gradle-plugins" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../gradle-1.12" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/build-tool-plugins/juniversal-gradle-plugins" />
+          </set>
+        </option>
+        <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$/build-tool-plugins/juniversal-gradle-plugins" />
           </set>
