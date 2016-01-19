@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslateExpressionTest extends TranslateNodeTest {
+public @Ignore class TranslateExpressionTest extends TranslateNodeTest {
     @Test public void testFieldAccess() {
         testTranslateIntExpression("this /*abc*/ . /*def*/ intField", null, null);
     }

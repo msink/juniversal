@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslateOperatorTest extends TranslateNodeTest {
+public @Ignore class TranslateOperatorTest extends TranslateNodeTest {
     @Test public void testTranslatePrefixOperators() {
         testTranslateIntExpression("-3", null, null);
         testTranslateIntExpression("- 3", null, "-3");

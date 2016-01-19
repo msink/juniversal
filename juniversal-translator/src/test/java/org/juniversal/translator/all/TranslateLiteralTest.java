@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslateLiteralTest extends TranslateNodeTest {
+public @Ignore class TranslateLiteralTest extends TranslateNodeTest {
     @Test public void testTranslateIntegerLiterals() {
         testTranslateIntExpression("3", null, null);
 

@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslateStatementTest extends TranslateNodeTest {
+public @Ignore class TranslateStatementTest extends TranslateNodeTest {
     @Test public void returnTest() {
         sourceTabStop = 4;
         destTabStop = -1;

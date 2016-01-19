@@ -35,7 +35,7 @@ import static org.junit.Assert.*;
 public @Ignore class WriteCPPTest {
     private int m_sourceTabStop = 4;
     private int m_destTabStop = 4;
-    private CPlusPlusTranslator cPlusPlusTranslator = new CPlusPlusTranslator();
+    private CPlusPlusTranslator cPlusPlusTranslator = new CPlusPlusTranslator(new CPlusPlusTargetProfile());
 
     @Test public void variableDeclarationTest() {
         testWriteStatement("int i = 3;");

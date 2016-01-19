@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslatePrimitiveTypeTest extends TranslateNodeTest {
+public @Ignore class TranslatePrimitiveTypeTest extends TranslateNodeTest {
     @Test public void testTranslatePrimitiveTypes() {
         testTranslateStatement("byte foo;", "sbyte foo;", "FILL IN");
         testTranslateStatement("short foo;", null, "FILL IN");

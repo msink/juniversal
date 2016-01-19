@@ -22,10 +22,11 @@
 
 package org.juniversal.translator.all;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.juniversal.translator.TranslateNodeTest;
 
-public class TranslateMappedMethodTest extends TranslateNodeTest {
+public @Ignore class TranslateMappedMethodTest extends TranslateNodeTest {
     @Test public void testStringMethods() {
         testTranslateStatement(
                 "boolean empty = \"abc\".isEmpty();",
